@@ -15,6 +15,10 @@ def emotion_detector_route():
     # Call the emotion_detector function
     result = emotion_detector(text_to_analyze)
     
+    # Check if dominant_emotion is None (error case)
+    if result['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
+    
     # Extract individual emotions
     anger = result['anger']
     disgust = result['disgust']
